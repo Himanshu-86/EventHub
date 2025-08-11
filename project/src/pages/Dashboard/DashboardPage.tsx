@@ -288,4 +288,13 @@ const DashboardPage: React.FC = () => {
           </div>
         </main>
         <FullScreenTicket
-          isOpen={isFullScreenTicket
+          isOpen={isFullScreenTicketOpen}
+          onClose={() => setIsFullScreenTicketOpen(false)}
+          ticket={selectedTicket}
+        />
+      </>
+    </DashboardLayout>
+  );
+};
+
+export default DashboardPage;
