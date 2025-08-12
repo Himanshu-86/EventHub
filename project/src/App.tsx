@@ -18,15 +18,11 @@ import CreateEventPage from './pages/Events/CreateEventPage';
 import TicketPage from './pages/Ticket/TicketPage';
 import TicketsPage from './pages/Tickets/TicketsPage';
 import SettingsPage from './pages/Settings/SettingsPage';
-<<<<<<< HEAD
 import ClassroomPage from './pages/Classroom';
 import DatabaseCheck from './pages/Admin/DatabaseCheck';
 import { VideoProvider } from './components/Video/VideoContext';
 import JoinRoom from './components/Video/JoinRoom';
 import MeetingRoom from './components/Video/MeetingRoom';
-=======
-import ClassRoomPage from './pages/ClassRoom/ClassRoomPage';
->>>>>>> 7e3fd58216fb2112bd8ea4c027f868e0e64bb53b
 
 // Protected Route Component
 const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
@@ -106,176 +102,159 @@ const AppContent: React.FC = () => {
     return () => subscription?.unsubscribe();
   }, [dispatch]);
   return (
-<<<<<<< HEAD
     <VideoProvider>
       <Router>
-=======
-    <Router>
->>>>>>> 7e3fd58216fb2112bd8ea4c027f868e0e64bb53b
-      <div className="App">
-        <Routes>
-          {/* Public Routes */}
-          <Route path="/" element={<LandingPage />} />
-          <Route
-            path="/login"
-            element={
-              <PublicRoute>
-                <LoginPage />
-              </PublicRoute>
-            }
-          />
-          <Route
-            path="/signup"
-            element={
-              <PublicRoute>
-                <SignupPage />
-              </PublicRoute>
-            }
-          />
+        <div className="App">
+          <Routes>
+            {/* Public Routes */}
+            <Route path="/" element={<LandingPage />} />
+            <Route
+              path="/login"
+              element={
+                <PublicRoute>
+                  <LoginPage />
+                </PublicRoute>
+              }
+            />
+            <Route
+              path="/signup"
+              element={
+                <PublicRoute>
+                  <SignupPage />
+                </PublicRoute>
+              }
+            />
 
-          {/* Protected Routes */}
-          <Route
-            path="/dashboard"
-            element={
-              <ProtectedRoute>
-                <DashboardPage />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/events"
-            element={
-              <ProtectedRoute>
-                <EventsPage />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/events/:id"
-            element={
-              <ProtectedRoute>
-                <EventDetailPage />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/events/create"
-            element={
-              <ProtectedRoute>
-                <CreateEventPage />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/events/edit/:id"
-            element={
-              <ProtectedRoute>
-                <CreateEventPage />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/ticket/:ticketId"
-            element={
-              <ProtectedRoute>
-                <TicketPage />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/tickets"
-            element={
-              <ProtectedRoute>
-                <TicketsPage />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/settings"
-            element={
-              <ProtectedRoute>
-                <SettingsPage />
-              </ProtectedRoute>
-            }
-          />
-<<<<<<< HEAD
-=======
+            {/* Protected Routes */}
+            <Route
+              path="/dashboard"
+              element={
+                <ProtectedRoute>
+                  <DashboardPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/events"
+              element={
+                <ProtectedRoute>
+                  <EventsPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/events/:id"
+              element={
+                <ProtectedRoute>
+                  <EventDetailPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/events/create"
+              element={
+                <ProtectedRoute>
+                  <CreateEventPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/events/edit/:id"
+              element={
+                <ProtectedRoute>
+                  <CreateEventPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/ticket/:ticketId"
+              element={
+                <ProtectedRoute>
+                  <TicketPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/tickets"
+              element={
+                <ProtectedRoute>
+                  <TicketsPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/settings"
+              element={
+                <ProtectedRoute>
+                  <SettingsPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/classroom"
+              element={
+                <ProtectedRoute>
+                  <ClassroomPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/join/:roomId?"
+              element={
+                <ProtectedRoute>
+                  <JoinRoom />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/classroom/room/:roomId"
+              element={
+                <ProtectedRoute>
+                  <MeetingRoom />
+                </ProtectedRoute>
+              }
+            />
+            {/* Admin Routes */}
+            <Route
+              path="/admin/database-check"
+              element={
+                <ProtectedRoute>
+                  <DatabaseCheck />
+                </ProtectedRoute>
+              }
+            />
 
->>>>>>> 7e3fd58216fb2112bd8ea4c027f868e0e64bb53b
-          <Route
-            path="/classroom"
-            element={
-              <ProtectedRoute>
-<<<<<<< HEAD
-                <ClassroomPage />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/join/:roomId?"
-            element={
-              <ProtectedRoute>
-                <JoinRoom />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/classroom/room/:roomId"
-            element={
-              <ProtectedRoute>
-                <MeetingRoom />
-              </ProtectedRoute>
-            }
-          />
-          
-          {/* Admin Routes */}
-          <Route
-            path="/admin/database-check"
-            element={
-              <ProtectedRoute>
-                <DatabaseCheck />
-=======
-                <ClassRoomPage />
->>>>>>> 7e3fd58216fb2112bd8ea4c027f868e0e64bb53b
-              </ProtectedRoute>
-            }
-          />
+            {/* Catch all route */}
+            <Route path="*" element={<Navigate to="/" />} />
+          </Routes>
 
-          {/* Catch all route */}
-          <Route path="*" element={<Navigate to="/" />} />
-        </Routes>
-
-        <Toaster
-          position="top-right"
-          toastOptions={{
-            duration: 4000,
-            style: {
-              background: '#363636',
-              color: '#fff',
-            },
-            success: {
-              duration: 3000,
-              iconTheme: {
-                primary: '#10B981',
-                secondary: '#fff',
-              },
-            },
-            error: {
+          <Toaster
+            position="top-right"
+            toastOptions={{
               duration: 4000,
-              iconTheme: {
-                primary: '#EF4444',
-                secondary: '#fff',
+              style: {
+                background: '#363636',
+                color: '#fff',
               },
-            },
-          }}
-        />
-      </div>
-<<<<<<< HEAD
+              success: {
+                duration: 3000,
+                iconTheme: {
+                  primary: '#10B981',
+                  secondary: '#fff',
+                },
+              },
+              error: {
+                duration: 4000,
+                iconTheme: {
+                  primary: '#EF4444',
+                  secondary: '#fff',
+                },
+              },
+            }}
+          />
+        </div>
       </Router>
     </VideoProvider>
-=======
-    </Router>
->>>>>>> 7e3fd58216fb2112bd8ea4c027f868e0e64bb53b
   );
 };
 
