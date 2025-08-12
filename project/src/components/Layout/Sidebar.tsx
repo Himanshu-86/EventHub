@@ -1,22 +1,37 @@
+<<<<<<< HEAD
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+=======
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { Link, useLocation } from 'react-router-dom';
+>>>>>>> 7e3fd58216fb2112bd8ea4c027f868e0e64bb53b
 
 import {
   Home,
   Calendar,
   Plus,
+<<<<<<< HEAD
   Ticket as TicketIcon,
+=======
+  Ticket,
+>>>>>>> 7e3fd58216fb2112bd8ea4c027f868e0e64bb53b
   Users,
   BarChart3,
   Settings,
   LogOut,
   X,
+<<<<<<< HEAD
   ChevronRight,
+=======
+  Video,
+>>>>>>> 7e3fd58216fb2112bd8ea4c027f868e0e64bb53b
 } from 'lucide-react';
 import { RootState } from '../../store';
 import { setSidebarOpen } from '../../store/slices/uiSlice';
 import { useAuth } from '../../hooks/useAuth';
+<<<<<<< HEAD
 import { supabase } from '../../services/supabase';
 import { format } from 'date-fns';
 
@@ -69,6 +84,21 @@ const Sidebar: React.FC = () => {
     { icon: Calendar, label: 'Events', path: '/events' },
     { icon: Plus, label: 'Create Event', path: '/events/create' },
     { icon: TicketIcon, label: 'My Tickets', path: '/tickets' },
+=======
+
+const Sidebar: React.FC = () => {
+  const dispatch = useDispatch();
+  const location = useLocation();
+  const { sidebarOpen } = useSelector((state: RootState) => state.ui);
+  const { user, signOut } = useAuth();
+
+  const menuItems = [
+    { icon: Home, label: 'Dashboard', path: '/dashboard' },
+    { icon: Calendar, label: 'Events', path: '/events' },
+    { icon: Plus, label: 'Create Event', path: '/events/create' },
+    { icon: Ticket, label: 'My Tickets', path: '/tickets' },
+    { icon: Video, label: 'Class Room', path: '/classroom' },
+>>>>>>> 7e3fd58216fb2112bd8ea4c027f868e0e64bb53b
     ...(user?.role === 'admin' ? [
       { icon: Users, label: 'Users', path: '/users' },
       { icon: BarChart3, label: 'Analytics', path: '/analytics' },
@@ -76,6 +106,7 @@ const Sidebar: React.FC = () => {
     { icon: Settings, label: 'Settings', path: '/settings' },
   ];
 
+<<<<<<< HEAD
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'confirmed':
@@ -87,6 +118,8 @@ const Sidebar: React.FC = () => {
     }
   };
 
+=======
+>>>>>>> 7e3fd58216fb2112bd8ea4c027f868e0e64bb53b
   const handleLogout = () => {
     signOut();
     dispatch(setSidebarOpen(false));
@@ -104,6 +137,7 @@ const Sidebar: React.FC = () => {
 
       {/* Sidebar */}
       <div
+<<<<<<< HEAD
         className={`fixed inset-y-0 left-0 z-40 w-72 transform bg-white dark:bg-gray-800 shadow-xl transition-transform duration-300 ease-in-out lg:static lg:z-auto lg:translate-x-0 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}
       >
         <div className="flex flex-col h-full">
@@ -116,25 +150,52 @@ const Sidebar: React.FC = () => {
               aria-label="Close sidebar"
             >
               <X className="w-5 h-5 text-gray-600 dark:text-gray-300" />
+=======
+        className={`fixed inset-y-0 left-0 z-40 w-72 transform bg-white shadow-xl transition-transform duration-300 ease-in-out lg:static lg:z-auto lg:translate-x-0 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}
+      >
+        <div className="flex flex-col h-full">
+          {/* Header */}
+          <div className="flex items-center justify-between p-6 border-b">
+
+            <button
+              onClick={() => dispatch(setSidebarOpen(false))}
+              className="lg:hidden p-2 hover:bg-gray-100 rounded-lg"
+              aria-label="Close sidebar"
+            >
+              <X className="w-5 h-5" />
+>>>>>>> 7e3fd58216fb2112bd8ea4c027f868e0e64bb53b
             </button>
           </div>
 
           {/* User info */}
+<<<<<<< HEAD
           <div className="p-6 border-b border-gray-200 dark:border-gray-700 bg-gradient-to-b from-gray-50 to-white dark:from-gray-800 dark:to-gray-800/50">
             <div className="flex items-center space-x-4">
               <div className="w-12 h-12 bg-gradient-to-tr from-violet-500 to-pink-500 rounded-full flex items-center justify-center shadow-md">
                 <span className="text-white font-bold text-xl">
+=======
+          <div className="p-6 border-b">
+            <div className="flex items-center space-x-3">
+              <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center">
+                <span className="text-white font-semibold">
+>>>>>>> 7e3fd58216fb2112bd8ea4c027f868e0e64bb53b
                   {user?.name?.charAt(0).toUpperCase()}
                 </span>
               </div>
               <div>
+<<<<<<< HEAD
                 <p className="font-bold text-gray-900 dark:text-gray-100">{user?.name}</p>
                 <p className="text-sm text-gray-600 dark:text-gray-400 capitalize">{user?.role}</p>
+=======
+                <p className="font-semibold text-gray-800">{user?.name}</p>
+                <p className="text-sm text-gray-500 capitalize">{user?.role}</p>
+>>>>>>> 7e3fd58216fb2112bd8ea4c027f868e0e64bb53b
               </div>
             </div>
           </div>
 
           {/* Navigation */}
+<<<<<<< HEAD
           <div className="flex-1 overflow-y-auto">
             <nav className="p-4">
               <ul className="space-y-2">
@@ -229,6 +290,39 @@ const Sidebar: React.FC = () => {
             <button
               onClick={handleLogout}
               className="flex items-center space-x-3 px-4 py-3 w-full text-left text-gray-600 dark:text-gray-400 hover:bg-red-50 dark:hover:bg-red-900/50 hover:text-red-600 dark:hover:text-red-400 rounded-lg transition-colors"
+=======
+          <nav className="flex-1 p-4">
+            <ul className="space-y-2">
+              {menuItems.map((item) => {
+                const Icon = item.icon;
+                const isActive = location.pathname === item.path;
+                
+                return (
+                  <li key={item.path}>
+                    <Link
+                      to={item.path}
+                      onClick={() => dispatch(setSidebarOpen(false))}
+                      className={`flex items-center space-x-3 px-4 py-3 rounded-lg transition-colors ${
+                        isActive
+                          ? 'bg-blue-50 text-blue-600 border-r-2 border-blue-600'
+                          : 'text-gray-600 hover:bg-gray-50 hover:text-gray-800'
+                      }`}
+                    >
+                      <Icon className="w-5 h-5" />
+                      <span className="font-medium">{item.label}</span>
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </nav>
+
+          {/* Logout */}
+          <div className="p-4 border-t">
+            <button
+              onClick={handleLogout}
+              className="flex items-center space-x-3 px-4 py-3 w-full text-left text-gray-600 hover:bg-red-50 hover:text-red-600 rounded-lg transition-colors"
+>>>>>>> 7e3fd58216fb2112bd8ea4c027f868e0e64bb53b
             >
               <LogOut className="w-5 h-5" />
               <span className="font-medium">Logout</span>

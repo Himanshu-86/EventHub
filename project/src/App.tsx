@@ -18,11 +18,15 @@ import CreateEventPage from './pages/Events/CreateEventPage';
 import TicketPage from './pages/Ticket/TicketPage';
 import TicketsPage from './pages/Tickets/TicketsPage';
 import SettingsPage from './pages/Settings/SettingsPage';
+<<<<<<< HEAD
 import ClassroomPage from './pages/Classroom';
 import DatabaseCheck from './pages/Admin/DatabaseCheck';
 import { VideoProvider } from './components/Video/VideoContext';
 import JoinRoom from './components/Video/JoinRoom';
 import MeetingRoom from './components/Video/MeetingRoom';
+=======
+import ClassRoomPage from './pages/ClassRoom/ClassRoomPage';
+>>>>>>> 7e3fd58216fb2112bd8ea4c027f868e0e64bb53b
 
 // Protected Route Component
 const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
@@ -102,8 +106,12 @@ const AppContent: React.FC = () => {
     return () => subscription?.unsubscribe();
   }, [dispatch]);
   return (
+<<<<<<< HEAD
     <VideoProvider>
       <Router>
+=======
+    <Router>
+>>>>>>> 7e3fd58216fb2112bd8ea4c027f868e0e64bb53b
       <div className="App">
         <Routes>
           {/* Public Routes */}
@@ -190,10 +198,15 @@ const AppContent: React.FC = () => {
               </ProtectedRoute>
             }
           />
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7e3fd58216fb2112bd8ea4c027f868e0e64bb53b
           <Route
             path="/classroom"
             element={
               <ProtectedRoute>
+<<<<<<< HEAD
                 <ClassroomPage />
               </ProtectedRoute>
             }
@@ -221,6 +234,9 @@ const AppContent: React.FC = () => {
             element={
               <ProtectedRoute>
                 <DatabaseCheck />
+=======
+                <ClassRoomPage />
+>>>>>>> 7e3fd58216fb2112bd8ea4c027f868e0e64bb53b
               </ProtectedRoute>
             }
           />
@@ -254,8 +270,12 @@ const AppContent: React.FC = () => {
           }}
         />
       </div>
+<<<<<<< HEAD
       </Router>
     </VideoProvider>
+=======
+    </Router>
+>>>>>>> 7e3fd58216fb2112bd8ea4c027f868e0e64bb53b
   );
 };
 

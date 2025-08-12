@@ -11,6 +11,10 @@ import {
 } from 'lucide-react';
 import { RootState } from '../../store';
 import { setEvents, deleteEvent as deleteEventAction } from '../../store/slices/eventSlice';
+<<<<<<< HEAD
+=======
+import { toast } from 'react-toastify';
+>>>>>>> 7e3fd58216fb2112bd8ea4c027f868e0e64bb53b
 import { setTickets, Ticket } from '../../store/slices/ticketSlice';
 import { supabase } from '../../services/supabase';
 import DashboardLayout from '../../components/Layout/DashboardLayout';
@@ -43,8 +47,15 @@ const DashboardPage: React.FC = () => {
         const { error } = await supabase.from('events').delete().eq('id', eventId);
         if (error) throw error;
         dispatch(deleteEventAction(eventId));
+<<<<<<< HEAD
       } catch (error) {
         console.error('Error deleting event:', error);
+=======
+        toast.success('Event deleted successfully!');
+      } catch (error) {
+        console.error('Error deleting event:', error);
+        toast.error('Failed to delete event. Please check permissions or try again.');
+>>>>>>> 7e3fd58216fb2112bd8ea4c027f868e0e64bb53b
       }
     }
   };
@@ -138,11 +149,16 @@ const DashboardPage: React.FC = () => {
   return (
     <DashboardLayout>
       <>
+<<<<<<< HEAD
         <main className="flex-1 p-8 overflow-y-auto bg-gray-50/50">
+=======
+        <main className="flex-1 p-4 md:p-6 lg:p-8">
+>>>>>>> 7e3fd58216fb2112bd8ea4c027f868e0e64bb53b
           <div className="max-w-7xl mx-auto grid gap-8">
             {/* Header */}
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-gray-200">
               <div>
+<<<<<<< HEAD
                 <h1 className="text-3xl font-bold text-slate-900 gradient-text">Dashboard</h1>
                 <p className="text-slate-500">Welcome back, {user?.name || 'User'}!</p>
               </div>
@@ -151,6 +167,20 @@ const DashboardPage: React.FC = () => {
                   <Plus className="w-5 h-5" />
                   <span>Create Event</span>
                 </button>
+=======
+                <h1 className="text-3xl font-bold text-slate-800">Dashboard</h1>
+                <p className="text-slate-500">Welcome back, {user?.name || 'User'}!</p>
+              </div>
+              <Link to="/events/create">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-lg shadow-md hover:bg-blue-700 transition-colors"
+                >
+                  <Plus className="w-5 h-5" />
+                  <span>Create Event</span>
+                </motion.button>
+>>>>>>> 7e3fd58216fb2112bd8ea4c027f868e0e64bb53b
               </Link>
             </div>
 
@@ -173,10 +203,17 @@ const DashboardPage: React.FC = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="grid grid-cols-1 lg:grid-cols-3 gap-6"
             >
+<<<<<<< HEAD
               <div className="lg:col-span-2 bg-white rounded-xl shadow-lg border border-gray-100 p-6 hover:shadow-xl transition-shadow duration-300">
                 <RevenueChart />
               </div>
               <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-6 hover:shadow-xl transition-shadow duration-300">
+=======
+              <div className="lg:col-span-2 bg-white rounded-xl shadow-md border border-gray-200 p-6">
+                <RevenueChart />
+              </div>
+              <div className="bg-white rounded-xl shadow-md border border-gray-200 p-6">
+>>>>>>> 7e3fd58216fb2112bd8ea4c027f868e0e64bb53b
                 <EventsChart />
               </div>
             </motion.div>
@@ -197,7 +234,11 @@ const DashboardPage: React.FC = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.7 }}
               >
+<<<<<<< HEAD
                 <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-6 hover:shadow-xl transition-shadow duration-300">
+=======
+                <div className="bg-white rounded-xl shadow-md border border-gray-200 p-6">
+>>>>>>> 7e3fd58216fb2112bd8ea4c027f868e0e64bb53b
                   <h2 className="text-xl font-semibold text-slate-800 mb-6">My Tickets</h2>
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {myTickets.map((ticket) => (
@@ -219,8 +260,13 @@ const DashboardPage: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.7 }}
             >
+<<<<<<< HEAD
               <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-6 hover:shadow-xl transition-shadow duration-300">
                 <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-8">
+=======
+              <div className="bg-white rounded-xl shadow-md border border-gray-200 p-6">
+                <div className="flex items-center justify-between mb-6">
+>>>>>>> 7e3fd58216fb2112bd8ea4c027f868e0e64bb53b
                   <h2 className="text-xl font-semibold text-slate-800">Recent Events</h2>
                   <button className="text-blue-600 hover:text-blue-800 font-semibold">
                     View All
@@ -246,7 +292,11 @@ const DashboardPage: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.8 }}
             >
+<<<<<<< HEAD
               <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-6 hover:shadow-xl transition-shadow duration-300">
+=======
+              <div className="bg-white rounded-xl shadow-md border border-gray-200 p-6">
+>>>>>>> 7e3fd58216fb2112bd8ea4c027f868e0e64bb53b
                 <h2 className="text-xl font-semibold text-slate-800 mb-6">Top Performing Events</h2>
                 <div className="space-y-4">
                   {recentEvents.map((event, index) => (

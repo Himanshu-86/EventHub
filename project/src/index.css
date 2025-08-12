@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+<<<<<<< HEAD
 :root {
   --primary-color: #4f46e5; /* Indigo 600 */
   --primary-hover: #4338ca; /* Indigo 700 */
@@ -15,6 +16,8 @@ body {
 
 }
 
+=======
+>>>>>>> 7e3fd58216fb2112bd8ea4c027f868e0e64bb53b
 /* Custom animations for landing page */
 @keyframes blob {
   0% {
@@ -46,6 +49,10 @@ body {
 /* Smooth scrolling & text size adjustment */
 html {
   scroll-behavior: smooth;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7e3fd58216fb2112bd8ea4c027f868e0e64bb53b
 }
 
 /* Custom scrollbar */
@@ -67,6 +74,7 @@ html {
 }
 
 /* Focus styles */
+<<<<<<< HEAD
 .focus-ring:focus {
   outline: 2px solid transparent;
   outline-offset: 2px;
@@ -74,18 +82,27 @@ html {
   --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
   box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
   --tw-ring-color: rgb(59 130 246 / 0.5);
+=======
+.focus-ring {
+  @apply focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
+>>>>>>> 7e3fd58216fb2112bd8ea4c027f868e0e64bb53b
 }
 
 /* Gradient text utility */
 .gradient-text {
+<<<<<<< HEAD
   background-image: linear-gradient(to right, #2563eb, #9333ea);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+=======
+  @apply bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent;
+>>>>>>> 7e3fd58216fb2112bd8ea4c027f868e0e64bb53b
 }
 
 /* Hover effects */
 .hover-lift {
+<<<<<<< HEAD
   transition-property: transform;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 300ms;
@@ -101,18 +118,30 @@ html {
 }
 .hover-scale:hover {
   transform: scale(1.05);
+=======
+  @apply transition-transform duration-300 hover:-translate-y-1;
+}
+
+.hover-scale {
+  @apply transition-transform duration-300 hover:scale-105;
+>>>>>>> 7e3fd58216fb2112bd8ea4c027f868e0e64bb53b
 }
 
 /* Glass morphism effect */
 .glass {
+<<<<<<< HEAD
   background-color: rgb(255 255 255 / 0.8);
     -webkit-backdrop-filter: blur(16px);
   backdrop-filter: blur(16px);
   border: 1px solid rgb(255 255 255 / 0.2);
+=======
+  @apply bg-white/80 backdrop-blur-md border border-white/20;
+>>>>>>> 7e3fd58216fb2112bd8ea4c027f868e0e64bb53b
 }
 
 /* Custom button styles */
 .btn-primary {
+<<<<<<< HEAD
   color: white;
   padding: 0.75rem 1.5rem;
   border-radius: 0.75rem;
@@ -127,6 +156,9 @@ html {
   transform: translateY(-0.125rem);
   box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
   background-image: linear-gradient(to right, #1d4ed8, #7e22ce);
+=======
+  @apply bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5;
+>>>>>>> 7e3fd58216fb2112bd8ea4c027f868e0e64bb53b
 }
 
 .btn-secondary {
