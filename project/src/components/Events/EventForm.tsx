@@ -94,24 +94,24 @@ const EventForm: React.FC<EventFormProps> = ({ onSubmit, loading = false, initia
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="bg-white rounded-lg shadow-sm border border-gray-200 p-6"
+      className="bg-white dark:bg-gray-900/70 dark:backdrop-blur-sm rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6"
     >
       <form onSubmit={handleSubmit(handleFormSubmit)} className="space-y-8">
         
         {/* Basic Information */}
         <div>
-          <h3 className="text-lg font-semibold text-gray-800 mb-4">Basic Information</h3>
+          <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-4">Basic Information</h3>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {/* Title */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                 <Type className="w-4 h-4 inline mr-2" />
                 Event Title *
               </label>
               <input
                 {...register('title')}
                 type="text"
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-300 dark:bg-gray-800 dark:border-gray-600 dark:text-white rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 placeholder="Enter event title"
               />
               {errors.title && (
@@ -121,12 +121,12 @@ const EventForm: React.FC<EventFormProps> = ({ onSubmit, loading = false, initia
 
             {/* Category */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                 Category *
               </label>
               <select
                 {...register('category')}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-300 dark:bg-gray-800 dark:border-gray-600 dark:text-white rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               >
                 <option value="">Select a category</option>
                 {categories.map((category) => (
@@ -142,14 +142,14 @@ const EventForm: React.FC<EventFormProps> = ({ onSubmit, loading = false, initia
 
             {/* Date */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                 <Calendar className="w-4 h-4 inline mr-2" />
                 Date *
               </label>
               <input
                 {...register('date')}
                 type="date"
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-300 dark:bg-gray-800 dark:border-gray-600 dark:text-white rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               />
               {errors.date && (
                 <p className="mt-1 text-sm text-red-600">{errors.date.message}</p>
@@ -158,14 +158,14 @@ const EventForm: React.FC<EventFormProps> = ({ onSubmit, loading = false, initia
 
             {/* Time */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                 <Clock className="w-4 h-4 inline mr-2" />
                 Time *
               </label>
               <input
                 {...register('time')}
                 type="time"
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-300 dark:bg-gray-800 dark:border-gray-600 dark:text-white rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               />
               {errors.time && (
                 <p className="mt-1 text-sm text-red-600">{errors.time.message}</p>
@@ -174,14 +174,14 @@ const EventForm: React.FC<EventFormProps> = ({ onSubmit, loading = false, initia
 
             {/* Location */}
             <div className="lg:col-span-2">
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                 <MapPin className="w-4 h-4 inline mr-2" />
                 Location *
               </label>
               <input
                 {...register('location')}
                 type="text"
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-300 dark:bg-gray-800 dark:border-gray-600 dark:text-white rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 placeholder="Enter event location"
               />
               {errors.location && (
@@ -192,14 +192,14 @@ const EventForm: React.FC<EventFormProps> = ({ onSubmit, loading = false, initia
 
           {/* Description */}
           <div className="mt-6">
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
               <FileText className="w-4 h-4 inline mr-2" />
               Description *
             </label>
             <textarea
               {...register('description')}
               rows={4}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-4 py-2 border border-gray-300 dark:bg-gray-800 dark:border-gray-600 dark:text-white rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               placeholder="Enter event description"
             />
             {errors.description && (
@@ -214,12 +214,12 @@ const EventForm: React.FC<EventFormProps> = ({ onSubmit, loading = false, initia
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {/* Ticket Type */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                 Ticket Type
               </label>
               <select
                 {...register('ticketType')}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-300 dark:bg-gray-800 dark:border-gray-600 dark:text-white rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               >
                 {ticketTypes.map((type) => (
                   <option key={type} value={type.toLowerCase()}>
@@ -231,19 +231,19 @@ const EventForm: React.FC<EventFormProps> = ({ onSubmit, loading = false, initia
 
             {/* Booking Deadline */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                 Booking Deadline
               </label>
               <input
                 {...register('bookingDeadline')}
                 type="date"
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-300 dark:bg-gray-800 dark:border-gray-600 dark:text-white rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               />
             </div>
 
             {/* Ticket Price */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                 <IndianRupee className="w-4 h-4 inline mr-2" />
                 Ticket Price *
               </label>
@@ -252,7 +252,7 @@ const EventForm: React.FC<EventFormProps> = ({ onSubmit, loading = false, initia
                 type="number"
                 min="0"
                 step="0.01"
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-300 dark:bg-gray-800 dark:border-gray-600 dark:text-white rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 placeholder="Enter ticket price"
               />
               {errors.price && (
@@ -262,7 +262,7 @@ const EventForm: React.FC<EventFormProps> = ({ onSubmit, loading = false, initia
 
             {/* Total Tickets */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                 <Users className="w-4 h-4 inline mr-2" />
                 Total Tickets Available *
               </label>
@@ -270,7 +270,7 @@ const EventForm: React.FC<EventFormProps> = ({ onSubmit, loading = false, initia
                 {...register('capacity')}
                 type="number"
                 min="1"
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-300 dark:bg-gray-800 dark:border-gray-600 dark:text-white rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 placeholder="Enter total capacity"
               />
               {errors.capacity && (
@@ -282,17 +282,17 @@ const EventForm: React.FC<EventFormProps> = ({ onSubmit, loading = false, initia
 
         {/* Organizer Information */}
         <div>
-          <h3 className="text-lg font-semibold text-gray-800 mb-4">Organizer Information</h3>
+          <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-4">Organizer Information</h3>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                 <Mail className="w-4 h-4 inline mr-2" />
                 Organizer Email
               </label>
               <input
                 {...register('organizerEmail')}
                 type="email"
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-300 dark:bg-gray-800 dark:border-gray-600 dark:text-white rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 placeholder="organizer@example.com"
               />
               {errors.organizerEmail && (
@@ -301,14 +301,14 @@ const EventForm: React.FC<EventFormProps> = ({ onSubmit, loading = false, initia
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                 <Phone className="w-4 h-4 inline mr-2" />
                 Organizer Phone
               </label>
               <input
                 {...register('organizerPhone')}
                 type="tel"
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-300 dark:bg-gray-800 dark:border-gray-600 dark:text-white rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 placeholder="Phone number"
               />
             </div>
@@ -317,28 +317,28 @@ const EventForm: React.FC<EventFormProps> = ({ onSubmit, loading = false, initia
 
         {/* Contact Information */}
         <div>
-          <h3 className="text-lg font-semibold text-gray-800 mb-4">Contact Information</h3>
+          <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-4">Contact Information</h3>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                 Contact Phone
               </label>
               <input
                 {...register('contactPhone')}
                 type="tel"
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-300 dark:bg-gray-800 dark:border-gray-600 dark:text-white rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 placeholder="Contact phone number"
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                 Contact Email
               </label>
               <input
                 {...register('contactEmail')}
                 type="email"
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-300 dark:bg-gray-800 dark:border-gray-600 dark:text-white rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 placeholder="contact@example.com"
               />
               {errors.contactEmail && (
@@ -350,17 +350,17 @@ const EventForm: React.FC<EventFormProps> = ({ onSubmit, loading = false, initia
 
         {/* Additional Information */}
         <div>
-          <h3 className="text-lg font-semibold text-gray-800 mb-4">Additional Information</h3>
+          <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-4">Additional Information</h3>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                 <Globe className="w-4 h-4 inline mr-2" />
                 Website URL
               </label>
               <input
                 {...register('websiteUrl')}
                 type="url"
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-300 dark:bg-gray-800 dark:border-gray-600 dark:text-white rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 placeholder="https://example.com"
               />
               {errors.websiteUrl && (
@@ -371,14 +371,14 @@ const EventForm: React.FC<EventFormProps> = ({ onSubmit, loading = false, initia
 
 
             <div className="lg:col-span-2">
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                 <Tag className="w-4 h-4 inline mr-2" />
                 Tags
               </label>
               <input
                 {...register('tags')}
                 type="text"
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-300 dark:bg-gray-800 dark:border-gray-600 dark:text-white rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 placeholder="technology, workshop, networking (separate with commas)"
               />
             </div>
@@ -387,10 +387,10 @@ const EventForm: React.FC<EventFormProps> = ({ onSubmit, loading = false, initia
 
         {/* Event Banner */}
         <div>
-          <h3 className="text-lg font-semibold text-gray-800 mb-4">Event Banner</h3>
-          <div className="border-2 border-dashed border-gray-300 rounded-lg p-6">
+          <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-4">Event Banner</h3>
+          <div className="border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg p-6">
             <div className="text-center">
-              <Upload className="mx-auto h-12 w-12 text-gray-400" />
+              <Upload className="mx-auto h-12 w-12 text-gray-400 dark:text-gray-500" />
               <div className="mt-4">
                 <label className="cursor-pointer bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-semibold transition-colors">
                   Upload Event Image
@@ -401,7 +401,7 @@ const EventForm: React.FC<EventFormProps> = ({ onSubmit, loading = false, initia
                     className="hidden"
                   />
                 </label>
-                <p className="text-sm text-gray-500 mt-2">PNG, JPG, GIF up to 10MB</p>
+                <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">PNG, JPG, GIF up to 10MB</p>
               </div>
               {imagePreview && (
                 <div className="mt-4">
@@ -418,16 +418,16 @@ const EventForm: React.FC<EventFormProps> = ({ onSubmit, loading = false, initia
 
         {/* Event Settings */}
         <div>
-          <h3 className="text-lg font-semibold text-gray-800 mb-4">Event Settings</h3>
+          <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-4">Event Settings</h3>
           <div className="space-y-4">
             <div className="flex items-center">
               <input
                 type="checkbox"
                 id="eventPublic"
                 defaultChecked
-                className="h-4 w-4 text-blue-600 rounded border-gray-300 focus:ring-blue-500"
+                className="h-4 w-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
               />
-              <label htmlFor="eventPublic" className="ml-2 text-sm text-gray-700">
+              <label htmlFor="eventPublic" className="ml-2 text-sm text-gray-700 dark:text-gray-300">
                 Public event (visible to everyone)
               </label>
             </div>
@@ -437,9 +437,9 @@ const EventForm: React.FC<EventFormProps> = ({ onSubmit, loading = false, initia
                 type="checkbox"
                 id="showAttendeeCount"
                 defaultChecked
-                className="h-4 w-4 text-blue-600 rounded border-gray-300 focus:ring-blue-500"
+                className="h-4 w-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
               />
-              <label htmlFor="showAttendeeCount" className="ml-2 text-sm text-gray-700">
+              <label htmlFor="showAttendeeCount" className="ml-2 text-sm text-gray-700 dark:text-gray-300">
                 Show attendee count
               </label>
             </div>
@@ -449,9 +449,9 @@ const EventForm: React.FC<EventFormProps> = ({ onSubmit, loading = false, initia
                 type="checkbox"
                 id="showRemainingTickets"
                 defaultChecked
-                className="h-4 w-4 text-blue-600 rounded border-gray-300 focus:ring-blue-500"
+                className="h-4 w-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
               />
-              <label htmlFor="showRemainingTickets" className="ml-2 text-sm text-gray-700">
+              <label htmlFor="showRemainingTickets" className="ml-2 text-sm text-gray-700 dark:text-gray-300">
                 Show remaining tickets
               </label>
             </div>
@@ -459,10 +459,10 @@ const EventForm: React.FC<EventFormProps> = ({ onSubmit, loading = false, initia
         </div>
 
         {/* Submit Buttons */}
-        <div className="flex justify-end space-x-4 pt-6 border-t">
+        <div className="flex justify-end space-x-4 pt-6 border-t dark:border-gray-700">
           <button
             type="button"
-            className="px-6 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 font-medium transition-colors"
+            className="px-6 py-2 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 font-medium transition-colors"
           >
             Cancel
           </button>

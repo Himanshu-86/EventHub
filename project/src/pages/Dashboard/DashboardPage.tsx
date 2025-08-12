@@ -138,23 +138,19 @@ const DashboardPage: React.FC = () => {
   return (
     <DashboardLayout>
       <>
-        <main className="flex-1 p-4 md:p-6 lg:p-8">
+        <main className="flex-1 p-8 overflow-y-auto bg-gray-50/50">
           <div className="max-w-7xl mx-auto grid gap-8">
             {/* Header */}
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-gray-200">
               <div>
-                <h1 className="text-3xl font-bold text-slate-800">Dashboard</h1>
+                <h1 className="text-3xl font-bold text-slate-900 gradient-text">Dashboard</h1>
                 <p className="text-slate-500">Welcome back, {user?.name || 'User'}!</p>
               </div>
               <Link to="/events/create">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-lg shadow-md hover:bg-blue-700 transition-colors"
-                >
+                <button className="bg-primary hover:bg-primary-hover text-white font-bold py-3 px-6 rounded-lg flex items-center space-x-2 transition-all transform hover:scale-105 shadow-lg hover:shadow-primary/50">
                   <Plus className="w-5 h-5" />
                   <span>Create Event</span>
-                </motion.button>
+                </button>
               </Link>
             </div>
 
@@ -177,10 +173,10 @@ const DashboardPage: React.FC = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="grid grid-cols-1 lg:grid-cols-3 gap-6"
             >
-              <div className="lg:col-span-2 bg-white rounded-xl shadow-md border border-gray-200 p-6">
+              <div className="lg:col-span-2 bg-white rounded-xl shadow-lg border border-gray-100 p-6 hover:shadow-xl transition-shadow duration-300">
                 <RevenueChart />
               </div>
-              <div className="bg-white rounded-xl shadow-md border border-gray-200 p-6">
+              <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-6 hover:shadow-xl transition-shadow duration-300">
                 <EventsChart />
               </div>
             </motion.div>
@@ -201,7 +197,7 @@ const DashboardPage: React.FC = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.7 }}
               >
-                <div className="bg-white rounded-xl shadow-md border border-gray-200 p-6">
+                <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-6 hover:shadow-xl transition-shadow duration-300">
                   <h2 className="text-xl font-semibold text-slate-800 mb-6">My Tickets</h2>
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {myTickets.map((ticket) => (
@@ -223,8 +219,8 @@ const DashboardPage: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.7 }}
             >
-              <div className="bg-white rounded-xl shadow-md border border-gray-200 p-6">
-                <div className="flex items-center justify-between mb-6">
+              <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-6 hover:shadow-xl transition-shadow duration-300">
+                <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-8">
                   <h2 className="text-xl font-semibold text-slate-800">Recent Events</h2>
                   <button className="text-blue-600 hover:text-blue-800 font-semibold">
                     View All
@@ -250,7 +246,7 @@ const DashboardPage: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.8 }}
             >
-              <div className="bg-white rounded-xl shadow-md border border-gray-200 p-6">
+              <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-6 hover:shadow-xl transition-shadow duration-300">
                 <h2 className="text-xl font-semibold text-slate-800 mb-6">Top Performing Events</h2>
                 <div className="space-y-4">
                   {recentEvents.map((event, index) => (

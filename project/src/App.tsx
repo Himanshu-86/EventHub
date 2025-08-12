@@ -19,6 +19,7 @@ import TicketPage from './pages/Ticket/TicketPage';
 import TicketsPage from './pages/Tickets/TicketsPage';
 import SettingsPage from './pages/Settings/SettingsPage';
 import ClassroomPage from './pages/Classroom';
+import DatabaseCheck from './pages/Admin/DatabaseCheck';
 import { VideoProvider } from './components/Video/VideoContext';
 import JoinRoom from './components/Video/JoinRoom';
 import MeetingRoom from './components/Video/MeetingRoom';
@@ -206,10 +207,20 @@ const AppContent: React.FC = () => {
             }
           />
           <Route
-            path="/room/:roomId"
+            path="/classroom/room/:roomId"
             element={
               <ProtectedRoute>
                 <MeetingRoom />
+              </ProtectedRoute>
+            }
+          />
+          
+          {/* Admin Routes */}
+          <Route
+            path="/admin/database-check"
+            element={
+              <ProtectedRoute>
+                <DatabaseCheck />
               </ProtectedRoute>
             }
           />

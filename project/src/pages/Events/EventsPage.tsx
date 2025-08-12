@@ -117,13 +117,13 @@ const EventsPage: React.FC = () => {
 
   return (
     <DashboardLayout>
-      <div className="space-y-6">
+      <div className="space-y-6 dark:bg-gray-800">
         {/* Header */}
                 {/* Header */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
-            <h1 className="text-3xl font-bold text-gray-900">Events</h1>
-            <p className="text-gray-600 mt-2">Discover and manage your events</p>
+            <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Events</h1>
+            <p className="text-gray-500 dark:text-gray-400 mt-1">Manage and view all your events.</p>
           </div>
           <div className="flex items-center space-x-4">
             <Link
@@ -133,23 +133,23 @@ const EventsPage: React.FC = () => {
               <Plus className="w-4 h-4 mr-2" />
               Create Event
             </Link>
-            <div className="flex items-center space-x-2 bg-gray-100 rounded-lg p-1">
+            <div className="flex items-center space-x-2 bg-gray-100 dark:bg-gray-800 rounded-lg p-1">
               <button
-                onClick={() => setViewMode('grid')}
+                onClick={() => setViewMode('grid')} aria-label="Grid view"
                 className={`p-2 rounded-lg ${
                   viewMode === 'grid' 
-                    ? 'bg-blue-100 text-blue-600' 
-                    : 'text-gray-400 hover:text-gray-600'
+                    ? 'bg-blue-100 text-blue-600 dark:bg-blue-900/50 dark:text-blue-400' 
+                    : 'text-gray-400 hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-300'
                 }`}
               >
                 <Grid className="w-5 h-5" />
               </button>
               <button
-                onClick={() => setViewMode('list')}
+                onClick={() => setViewMode('list')} aria-label="List view"
                 className={`p-2 rounded-lg ${
                   viewMode === 'list' 
-                    ? 'bg-blue-100 text-blue-600' 
-                    : 'text-gray-400 hover:text-gray-600'
+                    ? 'bg-blue-100 text-blue-600 dark:bg-blue-900/50 dark:text-blue-400' 
+                    : 'text-gray-400 hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-300'
                 }`}
               >
                 <List className="w-5 h-5" />
@@ -162,12 +162,13 @@ const EventsPage: React.FC = () => {
         <EventFilters />
 
         {/* Results */}
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-lg font-semibold text-gray-800">
+            <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-200">
               {filteredEvents.length} Events Found
             </h2>
-            <select className="border border-gray-300 rounded-lg px-3 py-2 text-sm">
+            <label htmlFor="sort-events" className="sr-only">Sort Events</label>
+            <select id="sort-events" aria-label="Sort Events" className="border border-gray-300 dark:bg-gray-700 dark:border-gray-600 dark:text-white rounded-lg px-3 py-2 text-sm">
               <option>Sort by Date</option>
               <option>Sort by Price</option>
               <option>Sort by Popularity</option>
@@ -180,8 +181,8 @@ const EventsPage: React.FC = () => {
             </div>
           ) : filteredEvents.length === 0 ? (
             <div className="text-center py-12">
-              <p className="text-gray-500 text-lg">No events found matching your criteria</p>
-              <p className="text-gray-400 mt-2">Try adjusting your filters</p>
+              <p className="text-gray-500 dark:text-gray-400 text-lg">No events found matching your criteria</p>
+              <p className="text-gray-400 dark:text-gray-500 mt-2">Try adjusting your filters</p>
             </div>
           ) : (
             <div className={`grid gap-6 ${
@@ -211,16 +212,16 @@ const EventsPage: React.FC = () => {
         {/* Edit Modal */}
         {showEditModal && editingEvent && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-            <div className="bg-white rounded-lg w-full max-w-4xl max-h-[90vh] overflow-y-auto">
-              <div className="p-6 border-b">
+            <div className="bg-white dark:bg-gray-800 rounded-lg w-full max-w-4xl max-h-[90vh] overflow-y-auto">
+              <div className="p-6 border-b dark:border-gray-700">
                 <div className="flex items-center justify-between">
-                  <h2 className="text-2xl font-bold text-gray-900">Edit Event</h2>
+                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Edit Event</h2>
                   <button
                     onClick={() => {
                       setShowEditModal(false);
                       setEditingEvent(null);
                     }}
-                    className="text-gray-400 hover:text-gray-600 text-2xl"
+                    className="text-gray-400 hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-300 text-2xl"
                   >
                     ×
                   </button>
@@ -228,8 +229,9 @@ const EventsPage: React.FC = () => {
               </div>
               <div className="p-6">
                 <EventForm 
-                  event={editingEvent} 
+                  initialData={editingEvent} 
                   onSubmit={handleUpdateEvent}
+                  isEditMode
                 />
               </div>
             </div>

@@ -61,7 +61,7 @@ const LandingPage: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white overflow-hidden">
+        <div className="min-h-screen overflow-hidden">
       {/* Navigation */}
       <nav className="bg-white/80 backdrop-blur-md shadow-sm border-b sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -168,21 +168,21 @@ const LandingPage: React.FC = () => {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative">
+        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1514525253161-7a46d19cd819')" }}></div>
+        <div className="absolute inset-0 bg-black/60"></div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="text-center py-24 md:py-32"
           >
-            <h1 className="text-5xl md:text-7xl font-extrabold text-gray-900 tracking-tighter leading-tight">
-              Discover & Book
-              <span className="block bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                Amazing Events
-              </span>
+            <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-white">
+              <span className="block">Discover & Book</span>
+              <span className="block bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent pb-2">Amazing Events</span>
             </h1>
-            <p className="mt-6 max-w-2xl mx-auto text-lg md:text-xl text-gray-600">
+            <p className="mt-6 max-w-2xl mx-auto text-lg md:text-xl text-gray-300">
               Your ultimate destination for concerts, sports, workshops, and more. Find your next unforgettable experience.
             </p>
             <div className="mt-10 max-w-xl mx-auto bg-white rounded-2xl shadow-2xl p-4 flex items-center space-x-3 border">
@@ -251,7 +251,7 @@ const LandingPage: React.FC = () => {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="py-24 bg-white">
+      <section className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h2 className="text-4xl font-extrabold text-gray-900 tracking-tight">
